@@ -1,4 +1,6 @@
 # EX-NO14-HASH-ALGORITHM
+## NAME: SHALINI N
+## REG NO: 212224040305
 
 ## AIM:
 To implement HASH ALGORITHM
@@ -27,9 +29,57 @@ To implement HASH ALGORITHM
 
 
 ## Program:
+```
+#include <stdio.h>
+#include <string.h>
 
+# Hash Function
+# This function converts the given message
+# into a fixed hash value.
+unsigned long hashFunction(char *str)
+{
+    unsigned long hash = 5381;
+    int c;
+
+    # Read each character of the message
+    # and calculate the hash value.
+    while ((c = *str++))
+    {
+        hash = ((hash << 5) + hash) + c;
+    }
+
+    # Return the calculated hash value.
+    return hash;
+}
+
+# Main Function
+int main()
+{
+    char message[100];
+    unsigned long hash;
+
+    # Get the message from the user.
+    printf("Enter the message: ");
+    fgets(message, sizeof(message), stdin);
+
+    # Remove the newline character
+    # added by fgets().
+    message[strcspn(message, "\n")] = '\0';
+
+    # Call the hash function
+    # to calculate the hash value.
+    hash = hashFunction(message);
+
+    # Display the generated hash value.
+    printf("Hash Value: %lu\n", hash);
+
+    return 0;
+}
+```
 
 ## Output:
+
+<img width="1522" height="595" alt="image" src="https://github.com/user-attachments/assets/781d3e9f-39d4-4069-9a2d-cc2b60511b3b" />
 
 ## Result:
 The program is executed successfully.
